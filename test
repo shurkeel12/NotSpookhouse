@@ -1,0 +1,19 @@
+// Request permission to show notifications
+if (Notification.permission !== "granted") {
+  Notification.requestPermission().then(function (permission) {
+    if (permission === "granted") {
+      // Permission granted, you can now display notifications
+      var notification = new Notification("Website Name", {
+        body: "This is a notification with images and files.",
+        icon: "notification-icon.png", // URL to an image
+        image: "image.jpg", // URL to an image
+      });
+      
+      // You can also add actions to the notification
+      notification.addEventListener("click", function () {
+        // Handle the notification click event
+        window.location.href = "https://example.com";
+      });
+    }
+  });
+}
